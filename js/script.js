@@ -29,7 +29,6 @@ window.onscroll = () => {
         // if want to use animation that repeats on scroll use this
         else {
             sec.classList.remove('show-animate');
-            
         }
     })
     // sticky header
