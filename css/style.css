@@ -52,6 +52,16 @@ body {
     font-weight: 600;
 }
 
+.logo:hover {
+    transition: color 0.3s ease-in-out;
+    color: var(--main-color);
+    text-decoration: underline;
+    background-color: var(--text-color);
+    border-radius: 30px;
+    padding: 10px;
+    
+}
+
 .navbar {
     position: relative;
 }
@@ -86,9 +96,9 @@ section {
     display: flex;
     align-items: center;
     padding: 0 9%;
-    background: url('D:\\MyWebSite\\image\\home.jpg') no-repeat;
+    background: url('../image/home.jpg') no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: right;
 }
 
 .home-content {
@@ -121,8 +131,12 @@ section {
     background-repeat: no-repeat;
     -webkit-background-clip: text;
     background-position: -33rem  0;
+}
+
+.home.show-animate .home-content .text-animate h3 {
     animation: homeBgText 6s linear infinite;
     animation-delay: 2s;
+    
 }
 
 .home-content .text-animate h3::before{
@@ -135,8 +149,12 @@ section {
     border-right: 2px solid var(--main-color);
     z-index: -1;
     
+}
+
+.home.show-animate .home-content .text-animate h3::before{
     animation: homeCursorText 6s linear infinite;
     animation-delay: 2s;
+    
 }
 
 .home-content p {
@@ -442,6 +460,12 @@ span {
     
 }
 
+.skills h2 {
+    display: inline-block;
+    left: 50%;
+    transform: translate(-50%);
+}
+
 .skills .skills-row {
     display: flex;
     flex-wrap: wrap;
@@ -453,8 +477,14 @@ span {
 }
 
 .skills-column .title {
+    position: relative;
+    display: inline-block;
     font-size: 2.5rem;
     margin: 0 0 1.5rem;
+}
+
+.skills-column .skills-box {
+    position: relative;
 }
 
 .skills-box .skills-content {
@@ -514,11 +544,11 @@ span {
 }
 
 .skills-column:nth-child(1) .skills-content .progress:nth-child(2) .bar span {
-    width: 80%;
+    width: 90%;
 }
 
 .skills-column:nth-child(1) .skills-content .progress:nth-child(3) .bar span {
-    width: 70%;
+    width: 30%;
 }
 
 .skills-column:nth-child(1) .skills-content .progress:nth-child(4) .bar span {
@@ -526,25 +556,32 @@ span {
 }
 
 .skills-column:nth-child(2) .skills-content .progress:nth-child(1) .bar span {
-    width: 90%;
+    width: 40%;
 }
 
 .skills-column:nth-child(2) .skills-content .progress:nth-child(2) .bar span {
-    width: 80%;
+    width: 10%;
 }
 
 .skills-column:nth-child(2) .skills-content .progress:nth-child(3) .bar span {
-    width: 70%;
+    width: 30%;
 }
 
 .skills-column:nth-child(2) .skills-content .progress:nth-child(4) .bar span {
-    width: 50%;
+    width: 80%;
 }
 
 .contact {
     min-height: auto;
     padding-bottom: 7rem;
 }
+
+.contact h2 {
+    display: inline-block;
+    left: 50%;
+    transform: translate(-50%);
+}
+
 .contact form {
     max-width: 70rem;
     margin: 0 auto;
@@ -623,6 +660,11 @@ span {
     background: var(--secnd-bg-color);
 }
 
+/* .footer-text,
+.footer-iconTop {
+    position: relative;
+} */
+
 .footer-text p {
     font-size: 1.6rem;
 }
@@ -671,7 +713,7 @@ span {
     right: 0;
     width: 100%;
     height: 100%;
-    background: yellow;
+    background: var(--bg-color);
     z-index: 98;
 }
 
@@ -684,21 +726,28 @@ span {
 #menu-icon .animate,
 .home.show-animate .animate{
     animation: showRight 1s ease forwards;
-    animation-delay: calc(.3s * var(--i));
+    animation-delay: calc(.1.5s * var(--i));
 }
 
 .animate.scroll {
     transition: 1s ease;
-    animation-delay: calc(.3s / var(--i));
+    animation-delay: calc(.1.5s / var(--i));
     animation: none;
+}
+
+section:nth-child(odd) .animate.scroll .footer .animate.scroll {
+    background: var(--secnd-bg-color);
 }
 
 .education .education-box .animate.scroll{
     width: 105%;
 }
 
-.about.show-animate .animate.animate.scroll ,
-.education.show-animate .animate.animate.scroll {
+.about.show-animate .animate.scroll ,
+.education.show-animate .animate.scroll,
+.skills.show-animate .animate.scroll ,
+.contact.show-animate .animate.scroll ,
+.footer.show-animate .animate.scroll {
     animation-delay: calc(.3s * var(--i));
     width: 0;
 }
@@ -725,6 +774,12 @@ span {
 
     .footer {
         padding: 2rem 4%;
+    }
+}
+
+@media (max-width : 850px){
+    .animate.home-img {
+        width: 55%;
     }
 }
 
